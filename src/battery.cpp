@@ -13,16 +13,16 @@ void RWA2::Battery::start_charging()
         if (model_ == "Li-ion")
         {
             int charge_left = 100-current_charge_;
-            int charge_time = 0.5*charge_left;
-            std::chrono::seconds duration(charge_time);
+            int charge_time = 0.5*1000*charge_left;
+            std::chrono::milliseconds duration(charge_time);
             std::this_thread::sleep_for(duration);
         }
 
         else if (model_ == "LiFePO4")
         {
             int charge_left = 100-current_charge_;
-            int charge_time = 0.25*charge_left;
-            std::chrono::seconds duration(charge_time);
+            int charge_time = 0.25*1000*charge_left;
+            std::chrono::milliseconds duration(charge_time);
             std::this_thread::sleep_for(duration);
         }
 

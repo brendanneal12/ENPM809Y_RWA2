@@ -16,7 +16,7 @@ namespace RWA2
      * @brief Class for the sensor
      *
      */
-    class Sensor
+    class Sensor final
     {
     private:
         // ==================== attributes ====================

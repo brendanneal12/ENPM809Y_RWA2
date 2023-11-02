@@ -15,7 +15,7 @@ namespace RWA2
      * @brief Class for the battery
      *
      */
-    class Battery
+    class Battery final
     {
     private:
         // ==================== attributes ====================

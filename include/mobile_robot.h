@@ -20,6 +20,14 @@ namespace RWA2
     std::vector<std::unique_ptr<RWA2::Sensor>> sensors_;
     std::string model_;
 
+    // ==================== methods ====================
+    /**
+     * @brief Rotate the mobile robot
+     *
+     * @param angle Angle for robot to rotate
+     */
+    virtual void rotate(double angle);
+
   public:
     /**
      * @brief Construct a new Mobile Robot object
@@ -82,12 +90,7 @@ namespace RWA2
      * @brief Move the mobile robot
      */
     virtual void move();
-    /**
-     * @brief Rotate the mobile robot
-     *
-     * @param angle Angle for robot to rotate
-     */
-    virtual void rotate(double angle);
+
     /**
      * @brief Print the current status of the robot (position, orientation, and speed).
      */
