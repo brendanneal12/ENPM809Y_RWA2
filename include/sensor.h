@@ -7,7 +7,7 @@
 #include <vector>
 
 /**
- * @brief Namespace for the maze navigation project
+ * @brief Namespace for RWA2
  *
  */
 namespace RWA2
@@ -29,9 +29,9 @@ namespace RWA2
 
         // ==================== methods ====================
         /**
-         * @brief Start reading the sensor data
+         * @brief Generate 50 random numbers to mimic sensor readings.
          *
-         * @param period Period of the reading (in s)
+         * @param duration Period of the reading (in s)
          */
         void read_data(unsigned int duration);
 

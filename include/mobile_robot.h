@@ -2,8 +2,10 @@
 
 #include <iostream>
 #include <utility>
+#include <string>
 
 #include "sensor.h"
+#include "battery.h"
 
 namespace RWA2
 {
@@ -14,6 +16,7 @@ namespace RWA2
     std::pair<double, double> position_;
     double orientation_;
     double speed_{0.0};
+    RWA2::Battery battery_;
     std::vector<std::unique_ptr<RWA2::Sensor>> sensors_;
     std::string model_;
 
@@ -24,7 +27,7 @@ namespace RWA2
      * - second argument: y position
      * - third argument: orientation
      */
-    MobileRobot() : MobileRobot(0, 0, 0) {}
+    MobileRobot() : MobileRobot(0.0, 0.0, 0.0, "Li-ion", 100, false) {}
     /**
      * @brief Construct a new Mobile Robot object
      * - first argument: x position
@@ -32,14 +35,14 @@ namespace RWA2
      * - third argument: orientation
      */
 
-    MobileRobot(double orientation) : MobileRobot(0, 0, orientation) {}
+    MobileRobot(double orientation) : MobileRobot(0, 0, orientation, "Li-ion", 100, false) {}
     /**
      * @brief Construct a new Mobile Robot object
      * - first argument: x position
      * - second argument: y position
      * - third argument: orientation
      */
-    MobileRobot(double x, double y) : MobileRobot(x, y, 0) {}
+    MobileRobot(double x, double y) : MobileRobot(x, y, 0, "Li-ion", 100, false) {}
 
     /**
      * @brief Construct a new Mobile Robot object
@@ -49,9 +52,10 @@ namespace RWA2
      * - third argument: orientation
      * - fourth argument: battery charge
      */
-    MobileRobot(double x, double y, double orientation)
+    MobileRobot(double x, double y, double orientation, std::string model, int current_charge, bool is_charging)
         : position_{x, y},
-          orientation_{orientation} {}
+          orientation_{orientation},
+          battery_{model, current_charge, is_charging} {}
 
     // ==================== accessors ====================
     /**
@@ -90,9 +94,9 @@ namespace RWA2
     virtual void print_status();
 
     /**
-     * @brief Add a sensor to the robot
+     * @brief Print the current status of the robot (position, orientation, and speed).
      *
-     * @param sensor sensor to add
+     * @param sensor
      */
     void add_sensor(std::unique_ptr<RWA2::Sensor> sensor);
 
