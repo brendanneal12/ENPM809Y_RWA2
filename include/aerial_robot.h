@@ -31,7 +31,7 @@ namespace RWA2
          * - fourth argument: robot model name
          * - fifth argument: battery model name
          * - sixth argument: current battery charge
-         * - seventh argument: is charging
+         * - seventh argument: is charging?
          * - eigth argument: has wings?
          */
         AerialRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel,

@@ -72,7 +72,7 @@ namespace RWA2
      * @brief Initiate Sensor Read
      * @param period period of the sensor reading
      */
-    void get_sensor_reading(int period) const;
+    void get_sensor_reading(unsigned int period) const;
 
     // ==================== methods ====================
     /**
