@@ -21,11 +21,6 @@ namespace RWA2
     std::string model_;
 
     // ==================== methods ====================
-    /**
-     * @brief Rotate the mobile robot
-     *
-     * @param angle Angle for robot to rotate
-     */
     virtual void rotate(double angle);
 
   public:
@@ -34,36 +29,16 @@ namespace RWA2
      * - first argument: x position
      * - second argument: y position
      * - third argument: orientation
+     * - fourth argument: robot model name
+     * - fifth argument: battery model name
+     * - sixth argument: current battery charge
+     * - seventh argument: is charging
      */
-    MobileRobot() : MobileRobot(0.0, 0.0, 0.0, "Li-ion", 100, false) {}
-    /**
-     * @brief Construct a new Mobile Robot object
-     * - first argument: x position
-     * - second argument: y position
-     * - third argument: orientation
-     */
-
-    MobileRobot(double orientation) : MobileRobot(0, 0, orientation, "Li-ion", 100, false) {}
-    /**
-     * @brief Construct a new Mobile Robot object
-     * - first argument: x position
-     * - second argument: y position
-     * - third argument: orientation
-     */
-    MobileRobot(double x, double y) : MobileRobot(x, y, 0, "Li-ion", 100, false) {}
-
-    /**
-     * @brief Construct a new Mobile Robot object
-     * @note This is a delegating constructor
-     * - first argument: x position
-     * - second argument: y position
-     * - third argument: orientation
-     * - fourth argument: battery charge
-     */
-    MobileRobot(double x, double y, double orientation, std::string model, int current_charge, bool is_charging)
+    MobileRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel, int current_charge, bool is_charging)
         : position_{x, y},
           orientation_{orientation},
-          battery_{model, current_charge, is_charging} {}
+          model_{botmodel},
+          battery_{battmodel, current_charge, is_charging} {}
 
     // ==================== accessors ====================
     /**
