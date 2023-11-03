@@ -10,7 +10,7 @@ void RWA2::AerialRobot::takeoff(double altitude)
         if (has_wings_ == true)
         {
             double climb_time = altitude / 3;
-            int climb_time_milli = 1000 * climb_time;
+            int climb_time_milli = static_cast<int>(1000 * climb_time);
             std::chrono::milliseconds duration(climb_time_milli);
             std::this_thread::sleep_for(duration);
             altitude = altitude_;
@@ -19,7 +19,7 @@ void RWA2::AerialRobot::takeoff(double altitude)
         else if (has_wings_ == false)
         {
             double climb_time = altitude / 1.5;
-            int climb_time_milli = 1000 * climb_time;
+            int climb_time_milli = static_cast<int>(1000 * climb_time);
             std::chrono::milliseconds duration(climb_time_milli);
             std::this_thread::sleep_for(duration);
             altitude = altitude_;

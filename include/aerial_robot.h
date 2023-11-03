@@ -24,7 +24,7 @@ namespace RWA2
     public:
         // ==================== constructor ====================
         /**
-         * @brief Construct a new Mobile Robot object
+         * @brief Construct a new Aerial Robot object
          * - first argument: x position
          * - second argument: y position
          * - third argument: orientation
