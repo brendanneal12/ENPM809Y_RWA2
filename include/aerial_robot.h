@@ -54,4 +54,4 @@ namespace RWA2
         virtual void print_status() override;
 
     }; // class AerialRobot
-} // namespace RWA2
+} // namespace RWA2 
