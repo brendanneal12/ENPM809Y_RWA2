@@ -24,14 +24,16 @@ namespace RWA2
         bool is_charging_;
 
         // ==================== methods ====================
-        /**
-         * @brief Stop charging the battery
-         *
-         */
         void stop_charging();
 
     public:
         // ==================== constructors ====================
+        /**
+         * @brief Construct a new Battery object
+         * - first argument: battery model name
+         * - second argument: current battery charge
+         * - third argument: is charging
+         */
         Battery(std::string model, int current_charge, bool is_charging)
             : model_{model},
               current_charge_{current_charge},
