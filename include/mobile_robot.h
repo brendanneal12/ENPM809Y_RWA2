@@ -24,6 +24,7 @@ namespace RWA2
     virtual void rotate(double angle);
 
   public:
+    // ==================== constructor ====================
     /**
      * @brief Construct a new Mobile Robot object
      * - first argument: x position
@@ -60,19 +61,35 @@ namespace RWA2
      */
     double get_speed() const { return speed_; }
 
-    // ==================== methods ====================
     /**
-     * @brief Move the mobile robot
+     * @brief Get the battery level of the robot
+     *
+     * @return double
      */
-    virtual void move();
+    double get_battery_level() const { return battery_.get_current_charge(); }
 
     /**
-     * @brief Print the current status of the robot (position, orientation, and speed).
+     * @brief Initiate Sensor Read
+     * @param period period of the sensor reading
+     */
+    void get_sensor_reading(int period) const;
+
+    // ==================== methods ====================
+    /**
+     * @brief Move the mobile robot (virtual method)
+     *
+     * @param distance
+     * @param angle
+     */
+    virtual void move(double distance, double angle);
+
+    /**
+     * @brief Print the current status of the robot (position, orientation, and speed) (virtual method).
      */
     virtual void print_status();
 
     /**
-     * @brief Print the current status of the robot (position, orientation, and speed).
+     * @brief Add a sensor to the robot.
      *
      * @param sensor
      */

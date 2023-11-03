@@ -41,7 +41,7 @@ namespace RWA2
 
         // ==================== accessors ====================
         /**
-         * @brief Get the capacity of the battery
+         * @brief Get the current charge of the battery
          *
          * @return double
          */
