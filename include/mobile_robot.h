@@ -100,7 +100,7 @@ namespace RWA2
      *
      * @param sensor
      */
-    void add_sensor(std::unique_ptr<RWA2::Sensor> sensor);
+    virtual void add_sensor(std::unique_ptr<RWA2::Sensor> sensor);
 
   }; // class MobileRobot
 } // namespace RWA2
