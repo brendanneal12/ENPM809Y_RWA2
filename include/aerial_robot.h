@@ -38,6 +38,11 @@ namespace RWA2
                     int current_charge, bool is_charging, bool has_wings) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging), has_wings_{has_wings}
         {
         }
+        // ==================== destructor ====================
+        /**
+         * @brief AerialRobot Class Destructor.
+         */
+        ~AerialRobot() {}
 
         // ==================== methods ====================
         /**
@@ -54,4 +59,4 @@ namespace RWA2
         virtual void print_status() override;
 
     }; // class AerialRobot
-} // namespace RWA2 
+} // namespace RWA2

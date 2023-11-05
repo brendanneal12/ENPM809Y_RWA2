@@ -7,7 +7,7 @@
 void RWA2::Sensor::read_data(unsigned int duration)
 {
 
-    std::cout << "Sensor " << model_ << " gathering data for " << duration << ' seconds. \n';
+    std::cout << "Sensor " << model_ << " gathering data for " << duration << " seconds. \n";
     std::this_thread::sleep_for(std::chrono::seconds(duration));
     for (int i = 0; i < 50; ++i) // Fill sensor data with random variables
     {

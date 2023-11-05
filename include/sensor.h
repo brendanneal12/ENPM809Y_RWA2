@@ -25,7 +25,17 @@ namespace RWA2
 
     public:
         // ==================== constructors ====================
+        /**
+         * @brief Construct a new sensor object
+         * -first argument: sensor model name.
+        */
         Sensor(std::string model_name) : model_{model_name} {}
+
+        // ==================== destructor ====================
+        /**
+         * @brief Sensor Class Destructor.
+         */
+        ~Sensor() {}
 
         // ==================== methods ====================
         /**

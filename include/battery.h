@@ -39,6 +39,13 @@ namespace RWA2
               current_charge_{current_charge},
               is_charging_{is_charging} {}
 
+        // ==================== destructor ====================
+
+        /**
+         * @brief Battery Class Destructor.
+         */
+        ~Battery() {}
+
         // ==================== accessors ====================
         /**
          * @brief Get the current charge of the battery

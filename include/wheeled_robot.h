@@ -38,10 +38,16 @@ namespace RWA2
          * - tenth argument: desired speed
          */
         WheeledRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel,
-                    int current_charge, bool is_charging, int number_of_wheels, double wheel_diameter, double desired_speed) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging), 
-                    number_of_wheels_{number_of_wheels}, wheel_diameter_{wheel_diameter}, desired_speed_{desired_speed}
+                     int current_charge, bool is_charging, int number_of_wheels, double wheel_diameter, double desired_speed) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging),
+                                                                                                                                number_of_wheels_{number_of_wheels}, wheel_diameter_{wheel_diameter}, desired_speed_{desired_speed}
         {
         }
+
+        // ==================== destructor ====================
+        /**
+         * @brief WheeledRobot Destructor.
+         */
+        ~WheeledRobot() {}
 
         // ==================== methods ====================
         /**

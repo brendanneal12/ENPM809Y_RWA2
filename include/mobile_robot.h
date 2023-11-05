@@ -41,6 +41,13 @@ namespace RWA2
           model_{botmodel},
           battery_{battmodel, current_charge, is_charging} {}
 
+    // ==================== destructor ====================
+
+    /**
+     * @brief MobileRobot Virtual Destructor.
+     */
+    virtual ~MobileRobot() {}
+
     // ==================== accessors ====================
     /**
      * @brief Get the position of the robot

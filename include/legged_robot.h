@@ -37,10 +37,16 @@ namespace RWA2
          * - tenth argument: number of legs
          */
         LeggedRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel,
-                    int current_charge, bool is_charging, double height, int leg_strength, int number_of_legs) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging), 
-                    height_{height}, leg_strength_{leg_strength}, number_of_legs_{number_of_legs}
+                    int current_charge, bool is_charging, double height, int leg_strength, int number_of_legs) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging),
+                                                                                                                 height_{height}, leg_strength_{leg_strength}, number_of_legs_{number_of_legs}
         {
         }
+
+        // ==================== destructor ====================
+        /**
+         * @brief Legged Robot Destructor.
+         */
+        ~LeggedRobot() {}
 
         // ==================== methods ====================
         /**

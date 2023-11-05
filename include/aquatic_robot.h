@@ -35,9 +35,15 @@ namespace RWA2
          * - eigth argument: has fins?
          */
         AquaticRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel,
-                    int current_charge, bool is_charging, bool has_fins) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging), has_fins_{has_fins}
+                     int current_charge, bool is_charging, bool has_fins) : MobileRobot(x, y, orientation, botmodel, battmodel, current_charge, is_charging), has_fins_{has_fins}
         {
         }
+
+        // ==================== destructor ====================
+        /**
+         * @brief AquaticRobot Destructor.
+         */
+        ~AquaticRobot() {}
 
         // ==================== methods ====================
         /**
@@ -54,4 +60,4 @@ namespace RWA2
         virtual void print_status() override;
 
     }; // class AerialRobot
-} // namespace RWA2 
+} // namespace RWA2
