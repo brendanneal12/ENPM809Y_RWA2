@@ -9,7 +9,7 @@ void RWA2::LeggedRobot::kick()
 
 void RWA2::LeggedRobot::jump(double amount)
 {
-    height_ = 0.1 * (leg_strength_ * amount);
+    height_ = amount*leg_strength_;
 }
 
 void RWA2::LeggedRobot::rotate(double angle)

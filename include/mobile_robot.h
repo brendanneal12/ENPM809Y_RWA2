@@ -1,9 +1,7 @@
 #pragma once
-
 #include <iostream>
 #include <utility>
 #include <string>
-
 #include "sensor.h"
 #include "battery.h"
 
@@ -35,11 +33,11 @@ namespace RWA2
      * - sixth argument: current battery charge
      * - seventh argument: is charging
      */
-    MobileRobot(double x, double y, double orientation, std::string botmodel, std::string battmodel, int current_charge, bool is_charging)
+    MobileRobot(double x, double y, double orientation, std::string bot_model, std::string batt_model, int current_charge, bool is_charging)
         : position_{x, y},
           orientation_{orientation},
-          model_{botmodel},
-          battery_{battmodel, current_charge, is_charging} {}
+          model_{bot_model},
+          battery_{batt_model, current_charge, is_charging} {}
 
     // ==================== destructor ====================
 
