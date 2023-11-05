@@ -83,12 +83,12 @@ namespace RWA2
 
     // ==================== methods ====================
     /**
-     * @brief Move the mobile robot (virtual method)
+     * @brief Move the mobile robot (pure virtual method)
      *
      * @param distance
      * @param angle
      */
-    virtual void move(double distance, double angle);
+    virtual void move(double distance, double angle) = 0;
 
     /**
      * @brief Print the current status of the robot (position, orientation, and speed) (virtual method).

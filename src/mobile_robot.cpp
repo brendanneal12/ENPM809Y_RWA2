@@ -19,9 +19,6 @@ void RWA2::MobileRobot::rotate(double angle) {
   std::cout << "MobileRobot: Rotating " << angle << " degrees\n";
 }
 
-void RWA2::MobileRobot::move(double distance, double angle) {
-  std::cout << "MobileRobot: Moving\n";
-}
 
 void RWA2::MobileRobot::print_status() {
   std::cout << "================\n";
