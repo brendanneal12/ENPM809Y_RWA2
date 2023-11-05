@@ -79,6 +79,7 @@ void RWA2::AerialRobot::move(double distance, double angle)
 
 void RWA2::AerialRobot::rotate(double angle)
 {
+    orientation_ += angle;
     std::cout << AerialRobot::model_ << " rotated" << angle << " degrees \n";
 }
 

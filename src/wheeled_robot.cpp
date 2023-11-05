@@ -34,6 +34,7 @@ void RWA2::WheeledRobot::brake()
 
 void RWA2::WheeledRobot::rotate(double angle)
 {
+    orientation_ += angle;
     std::cout << "WheeledRobot::" << model_ << " rotated" << angle << " degrees \n";
 }
 

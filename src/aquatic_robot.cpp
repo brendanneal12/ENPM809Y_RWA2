@@ -55,6 +55,7 @@ void RWA2::AquaticRobot::surface()
 
 void RWA2::AquaticRobot::rotate(double angle)
 {
+    orientation_ += angle;
     std::cout << "AquaticRobot::" << model_ << " rotated" << angle << " degrees \n";
 }
 

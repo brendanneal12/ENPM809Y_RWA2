@@ -14,6 +14,7 @@ void RWA2::LeggedRobot::jump(double amount)
 
 void RWA2::LeggedRobot::rotate(double angle)
 {
+    orientation_ += angle;
     std::cout << "LeggedRobot::" << model_ << " rotated" << angle << " degrees \n";
 }
 
