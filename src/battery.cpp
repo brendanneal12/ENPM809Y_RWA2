@@ -8,7 +8,7 @@ void RWA2::Battery::start_charging()
     if (is_charging_ == false)
     {
         is_charging_ = true;
-        std::cout << "Battery" << model_ << " is charging. \n";
+        std::cout << "Battery " << model_ << " is charging. \n";
 
         if (model_ == "Li-ion")
         {
@@ -38,7 +38,7 @@ void RWA2::Battery::start_charging()
 void RWA2::Battery::stop_charging()
 {
     is_charging_ = false;
-    std::cout << "Battery" << model_ << " is fully charged. \n";
+    std::cout << "Battery " << model_ << " is fully charged. \n";
 }
 
 void RWA2::Battery::discharge(double amount)

@@ -63,7 +63,7 @@ namespace RWA2
         void start_charging();
 
         /**
-         * @brief Discharge the battery - each time the robot moves, the battery discharges by 1 percent
+         * @brief Discharge the battery - each time the robot moves, the battery discharges by a set percent.
          * @param amount
          */
         void discharge(double amount);

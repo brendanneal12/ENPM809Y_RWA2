@@ -71,7 +71,6 @@ void RWA2::WheeledRobot::move(double distance, double angle)
     WheeledRobot::rotate(angle);
     WheeledRobot::accelerate(2);
     int wait_time_milli = static_cast<int>(distance * 1000 - 2000);
-    std::cout << wait_time_milli << '\n';
     std::chrono::milliseconds duration(wait_time_milli);
     std::this_thread::sleep_for(duration);
     WheeledRobot::deceletate(2);

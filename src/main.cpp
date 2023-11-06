@@ -21,17 +21,17 @@ int main()
     std::vector<std::unique_ptr<RWA2::MobileRobot>> mobile_robots;
 
     std::unique_ptr<RWA2::MobileRobot> aquatic_ptr =
-        std::make_unique<RWA2::AquaticRobot>(4.5, 7.5, 0.0, "Sofi", "LiFEPO4", 100, false, true);
+        std::make_unique<RWA2::AquaticRobot>(4.5, 7.5, 0.0, "Sofi", "LiFePO4", 5, false, true);
 
     aquatic_ptr->add_sensor(std::make_unique<RWA2::Sensor>("multiScan100"));
 
     std::unique_ptr<RWA2::MobileRobot> aerial_ptr =
-        std::make_unique<RWA2::AerialRobot>(2.5, 5.5, 45.0, "Erle-Plane", "Li-ion", 100, false, true);
+        std::make_unique<RWA2::AerialRobot>(2.5, 5.5, 45.0, "Erle-Plane", "Li-ion", 5, false, true);
 
     aerial_ptr->add_sensor(std::make_unique<RWA2::Sensor>("OS2"));
 
     std::unique_ptr<RWA2::MobileRobot> legged_ptr =
-        std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, "Spot", "LiFEPO4", 50, false, 1.0, 2, 4);
+        std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, "Spot", "LiFePO4", 50, false, 1.0, 2, 4);
 
     legged_ptr->add_sensor(std::make_unique<RWA2::Sensor>("LMS5xx"));
 
