@@ -31,7 +31,7 @@ int main()
     aerial_ptr->add_sensor(std::make_unique<RWA2::Sensor>("OS2"));
 
     std::unique_ptr<RWA2::MobileRobot> legged_ptr =
-        std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, "Spot", "LiFePO4", 50, false, 1.0, 2, 4);
+        std::make_unique<RWA2::LeggedRobot>(3.5, 6.5, 45.0, "Spot", "LiFePO4", 50, false, 0.0, 2, 4);
 
     legged_ptr->add_sensor(std::make_unique<RWA2::Sensor>("LMS5xx"));
 

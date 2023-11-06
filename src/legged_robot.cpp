@@ -43,10 +43,10 @@ void RWA2::LeggedRobot::move(double distance, double angle)
     {
         std::cout << "Battery level is too low to jump " << height_ << " cm\n";
         battery_.start_charging();
-        height_ = 0;
+        height_ = 0.0;
     }
 
-    height_ = 0;
+    height_ = 0.0;
 
     if (battery_.get_current_charge() < 1 * leg_strength_)
     {
