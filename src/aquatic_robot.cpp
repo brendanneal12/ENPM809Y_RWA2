@@ -6,7 +6,7 @@ void RWA2::AquaticRobot::dive(double depth)
 {
     if (is_diving_ == false)
     {
-        is_diving_ == true;
+        is_diving_ = true;
         if (has_fins_ == true)
         {
             double dive_time = depth / 2;
@@ -38,7 +38,7 @@ void RWA2::AquaticRobot::surface()
             std::chrono::milliseconds duration(ascend_time_milli);
             std::this_thread::sleep_for(duration);
             depth_ = 0.0;
-            is_diving_ == false;
+            is_diving_ = false;
         }
 
         else if (has_fins_ == false)
@@ -48,7 +48,7 @@ void RWA2::AquaticRobot::surface()
             std::chrono::milliseconds duration(ascend_time_milli);
             std::this_thread::sleep_for(duration);
             depth_ = 0.0;
-            is_diving_ == false;
+            is_diving_ = false;
         }
     }
 }
@@ -56,7 +56,7 @@ void RWA2::AquaticRobot::surface()
 void RWA2::AquaticRobot::rotate(double angle)
 {
     orientation_ += angle;
-    std::cout << "AquaticRobot::" << model_ << " rotated" << angle << " degrees \n";
+    std::cout << "AquaticRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
 void RWA2::AquaticRobot::print_status()
@@ -67,8 +67,9 @@ void RWA2::AquaticRobot::print_status()
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
         << ", Speed: " << speed_ << "\n"
-        << ", Current Battery Charge: " << battery_.get_current_charge()<< "\n";
-    std::cout << "Has Fins:" << std::boolalpha << has_fins_ << " Depth:" << depth_ << "Is Diving:" << std::boolalpha << is_diving_ << '\n';
+        << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
+    std::cout << "Has Fins: " << std::boolalpha << has_fins_ << ", Depth: " << depth_ << "m, Is Diving: " << std::boolalpha << is_diving_ << '\n';
+    std::cout << "================\n";
 }
 
 void RWA2::AquaticRobot::move(double distance, double angle)
@@ -92,6 +93,6 @@ void RWA2::AquaticRobot::move(double distance, double angle)
     AquaticRobot::dive(distance);
     AquaticRobot::surface();
     battery_.discharge(2 * distance);
-    std::cout << model_ << "reached a depth of " << distance << " meters and then surfaced\n";
+    std::cout << model_ << " reached a depth of " << distance << " meters and then surfaced\n";
     AquaticRobot::print_status();
 }
