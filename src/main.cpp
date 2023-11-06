@@ -6,7 +6,7 @@
 #include "sensor.h"
 #include "battery.h"
 
-// Group 12
+// Group 12: Brendan Neal, Sarang Shibu, and Prathinav Karnala Venkata.
 // ENPM809Y RWA2
 // Due: 10 November 2023
 
@@ -21,7 +21,7 @@ int main()
     std::vector<std::unique_ptr<RWA2::MobileRobot>> mobile_robots;
 
     std::unique_ptr<RWA2::MobileRobot> aquatic_ptr =
-        std::make_unique<RWA2::AquaticRobot>(4.5, 7.5, 0.0, "Sofi", "LiFePO4", 5, false, true);
+        std::make_unique<RWA2::AquaticRobot>(4.5, 7.5, 0.0, "HoloOcean", "LiFePO4", 5, false, false);
 
     aquatic_ptr->add_sensor(std::make_unique<RWA2::Sensor>("multiScan100"));
 
