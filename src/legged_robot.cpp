@@ -21,7 +21,7 @@ void RWA2::LeggedRobot::rotate(double angle)
 void RWA2::LeggedRobot::print_status()
 {
     std::cout << "================\n";
-    std::cout << "LEGGED ROBOT\n";
+    std::cout << "LeggedRobot::" << model_ << "\n";
     std::cout
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_

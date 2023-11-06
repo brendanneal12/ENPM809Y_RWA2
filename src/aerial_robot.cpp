@@ -86,7 +86,7 @@ void RWA2::AerialRobot::rotate(double angle)
 void RWA2::AerialRobot::print_status()
 {
     std::cout << "================\n";
-    std::cout << "AERIAL ROBOT\n";
+    std::cout << "AerialRobot:: " << model_ << "\n";
     std::cout
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_

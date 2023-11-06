@@ -41,7 +41,7 @@ void RWA2::WheeledRobot::rotate(double angle)
 void RWA2::WheeledRobot::print_status()
 {
     std::cout << "================\n";
-    std::cout << "WHEELED ROBOT\n";
+    std::cout << "WheeledRobot::" << model_ << "\n";
     std::cout
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_

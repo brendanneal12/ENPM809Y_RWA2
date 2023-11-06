@@ -62,7 +62,7 @@ void RWA2::AquaticRobot::rotate(double angle)
 void RWA2::AquaticRobot::print_status()
 {
     std::cout << "================\n";
-    std::cout << "AQUATIC ROBOT\n";
+    std::cout << "AquaticRobot::" << model_ << "\n";
     std::cout
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
