@@ -26,7 +26,7 @@ void RWA2::LeggedRobot::print_status()
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
         << ", Speed: " << speed_ << "\n"
-        << ", Current Battery Charge: " << battery_.get_current_charge();
+        << ", Current Battery Charge: " << battery_.get_current_charge()<< "\n";
     std::cout << "Height: " << height_ << " Leg Strength: " << leg_strength_ << " Number of Legs: " << number_of_legs_ << '\n';
 }
 

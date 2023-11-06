@@ -59,5 +59,5 @@ namespace RWA2
          */
         virtual void print_status() override;
 
-    }; // class AerialRobot
+    }; // class AquaticRobot
 } // namespace RWA2

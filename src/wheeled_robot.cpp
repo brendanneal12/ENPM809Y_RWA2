@@ -46,7 +46,7 @@ void RWA2::WheeledRobot::print_status()
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
         << ", Speed: " << speed_ << "\n"
-        << ", Current Battery Charge: " << battery_.get_current_charge();
+        << ", Current Battery Charge: " << battery_.get_current_charge()<< "\n";
     std::cout << "Number of Wheels:" << number_of_wheels_ << " Wheel Diameter:" << wheel_diameter_ << "Desired Speed:" << desired_speed_ << '\n';
 }
 

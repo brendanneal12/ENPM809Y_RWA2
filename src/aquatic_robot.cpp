@@ -67,7 +67,7 @@ void RWA2::AquaticRobot::print_status()
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
         << ", Speed: " << speed_ << "\n"
-        << ", Current Battery Charge: " << battery_.get_current_charge();
+        << ", Current Battery Charge: " << battery_.get_current_charge()<< "\n";
     std::cout << "Has Fins:" << std::boolalpha << has_fins_ << " Depth:" << depth_ << "Is Diving:" << std::boolalpha << is_diving_ << '\n';
 }
 

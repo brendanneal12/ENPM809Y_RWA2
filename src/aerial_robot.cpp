@@ -91,6 +91,6 @@ void RWA2::AerialRobot::print_status()
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_
         << ", Speed: " << speed_ << "\n"
-        << ", Current Battery Charge: " << battery_.get_current_charge();
+        << ", Current Battery Charge: " << battery_.get_current_charge() << "\n";
     std::cout << "Has Wings:" << std::boolalpha << has_wings_ << " Altitude:" << altitude_ << "Is Flying:" << std::boolalpha << is_flying_ << '\n';
 }

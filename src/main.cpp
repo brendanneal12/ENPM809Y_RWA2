@@ -19,7 +19,7 @@ int main(){}
 // void move_robot(const std::vector<std::unique_ptr<RWA2::MobileRobot>> &robots)
 // {
 //     for (const auto &robot : robots)
-//         robot->move(40, 5);
+//         robot->move(8, 5);
 // }
 
 // int main()
