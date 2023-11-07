@@ -15,7 +15,7 @@ void move_robot(const std::vector<std::unique_ptr<RWA2::MobileRobot>> &robots)
     //For all robots in vector
     for (const auto &robot : robots)
         //Move 8 meters and rotate 5 degrees
-        robot->move(8, 5);
+        robot->move(8.0, 5.0);
 }
 
 int main()

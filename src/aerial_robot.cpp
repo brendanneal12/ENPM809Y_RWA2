@@ -107,7 +107,7 @@ void RWA2::AerialRobot::rotate(double angle)
 {
     // Rotate the aerial robot by desired amount
     orientation_ += angle;
-    std::cout << AerialRobot::model_ << " rotated " << angle << " degrees \n";
+    std::cout << "AerialRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
 void RWA2::AerialRobot::print_status()

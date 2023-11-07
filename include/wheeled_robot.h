@@ -51,7 +51,7 @@ namespace RWA2
 
         // ==================== methods ====================
         /**
-         * @brief Move the aerial robot (override method)
+         * @brief Move the wheeled robot (override method)
          *
          * @param distance
          * @param angle

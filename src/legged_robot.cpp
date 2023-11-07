@@ -12,6 +12,7 @@ void RWA2::LeggedRobot::jump(double amount)
 {
     // Update robot height by jump amount
     height_ = (0.01 * amount) * leg_strength_;
+    std::cout << model_ << " jumps at a height of " << height_ << " above the ground \n";
 }
 
 void RWA2::LeggedRobot::rotate(double angle)
@@ -43,16 +44,12 @@ void RWA2::LeggedRobot::move(double distance, double angle)
     }
 
     // Check if able to complete one jump
-    LeggedRobot::jump(distance);
-    if (battery_.get_current_charge() < 100 * height_)
+    if (battery_.get_current_charge() < (0.01 * distance) * leg_strength_)
     {
         std::cout << "Battery level is too low to jump " << height_ << " cm\n";
         // Charge battery
         battery_.start_charging();
-        height_ = 0.0;
     }
-
-    height_ = 0.0;
 
     // Check if able to complete one kick
     if (battery_.get_current_charge() < 1 * leg_strength_)
