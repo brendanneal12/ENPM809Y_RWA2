@@ -12,7 +12,7 @@ void RWA2::LeggedRobot::jump(double amount)
 {
     // Update robot height by jump amount
     height_ = (0.01 * amount) * leg_strength_;
-    std::cout << model_ << " jumps at a height of " << height_ << " above the ground \n";
+    std::cout << model_ << " jumps at a height of " << 100*height_ << " cm above the ground \n";
 }
 
 void RWA2::LeggedRobot::rotate(double angle)
