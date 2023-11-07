@@ -50,7 +50,7 @@ namespace RWA2
 
         // ==================== methods ====================
         /**
-         * @brief Move the aerial robot (override method)
+         * @brief Move the legged robot (override method)
          *
          * @param distance
          * @param angle
@@ -58,7 +58,7 @@ namespace RWA2
         virtual void move(double distance, double angle) override;
 
         /**
-         * @brief Print the current status of the robot (override method)
+         * @brief Print position, orientation, speed, current battery charge, height, leg strength, and number of legs (override method)
          */
         virtual void print_status() override;
 

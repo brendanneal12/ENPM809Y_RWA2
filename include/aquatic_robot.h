@@ -55,7 +55,7 @@ namespace RWA2
         virtual void move(double distance, double angle) override;
 
         /**
-         * @brief Print the current status of the robot (override method)
+         * @brief Print position, orientation, speed, current battery charge, fin info, depth, and dive status (override method)
          */
         virtual void print_status() override;
 

@@ -54,7 +54,7 @@ namespace RWA2
         virtual void move(double distance, double angle) override;
 
         /**
-         * @brief Print the current status of the robot (override method)
+         * @brief Print position, orientation, speed, current battery charge, wing info, altitude, and flight status of the robot (override method)
          */
         virtual void print_status() override;
 

@@ -4,9 +4,11 @@
 
 void RWA2::WheeledRobot::accelerate(double amount)
 {
+    //While wheeled robot is less than desired speed
     while (speed_ <= desired_speed_)
     {
         std::chrono::milliseconds duration(500);
+        //Sleep the thread and increment speed
         std::this_thread::sleep_for(duration);
         speed_ += amount;
     }
@@ -15,12 +17,15 @@ void RWA2::WheeledRobot::accelerate(double amount)
 
 void RWA2::WheeledRobot::deceletate(double amount)
 {
+    // While wheeled robot is greater than 0 speed
     while (speed_ >= 0.0)
     {
         std::chrono::milliseconds duration(500);
+        //Sleep the thread and decrement speed
         std::this_thread::sleep_for(duration);
         speed_ -= amount;
     }
+    //Ensure speed does not reach zero
     if (speed_ < 0.0)
     {
         speed_ = 0;
@@ -29,11 +34,13 @@ void RWA2::WheeledRobot::deceletate(double amount)
 
 void RWA2::WheeledRobot::brake()
 {
+    //Set speed directly to 0
     speed_ = 0;
 }
 
 void RWA2::WheeledRobot::rotate(double angle)
 {
+    // Rotate robot by desired angle
     orientation_ += angle;
     std::cout << "WheeledRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
@@ -53,6 +60,7 @@ void RWA2::WheeledRobot::print_status()
 
 void RWA2::WheeledRobot::move(double distance, double angle)
 {
+    //Check if move command is not greater than maximum distance (100m)
     if (distance > 100)
     {
         std::cout << "Wheeled Robot unable to move more than 100 m." << '\n';
@@ -67,15 +75,23 @@ void RWA2::WheeledRobot::move(double distance, double angle)
         battery_.start_charging();
     }
 
+    //Read sensor data
     WheeledRobot::get_sensor_reading(5);
+    //Rotate wheeled robot by angle
     WheeledRobot::rotate(angle);
+    //Accelerate to desired speed
     WheeledRobot::accelerate(2);
+    //Sleep thread for distance-2 seconds
     int wait_time_milli = static_cast<int>(distance * 1000 - 2000);
     std::chrono::milliseconds duration(wait_time_milli);
     std::this_thread::sleep_for(duration);
+    //Decelerate to zero
     WheeledRobot::deceletate(2);
+    //Brake
     WheeledRobot::brake();
+    //Discharge battery by proper amount
     battery_.discharge(distance);
     std::cout << model_ << " drove " << distance << " m\n";
+    //Print status of wheeled robot.
     WheeledRobot::print_status();
 }
