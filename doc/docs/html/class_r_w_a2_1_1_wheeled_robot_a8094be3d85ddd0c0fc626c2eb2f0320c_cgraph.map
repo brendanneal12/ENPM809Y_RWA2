@@ -1,0 +1,5 @@
+<map id="RWA2::WheeledRobot::move" name="RWA2::WheeledRobot::move">
+<area shape="rect" id="node1" title="Move the wheeled robot (override method)" alt="" coords="5,39,169,80"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html#aa52ecf04e381e7737eb54bd2b11319d0" title="Initiate Sensor Read." alt="" coords="220,5,379,47"/>
+<area shape="rect" id="node3" href="$class_r_w_a2_1_1_wheeled_robot.html#ad7f27c869d62676c207f4045f8f31672" title="Print position, orientation, speed, current battery charge, number of wheels, wheel diameter,..." alt="" coords="217,71,381,112"/>
+</map>

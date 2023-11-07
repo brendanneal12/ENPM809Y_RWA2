@@ -1,0 +1,4 @@
+<map id="RWA2::Battery::get_current_charge" name="RWA2::Battery::get_current_charge">
+<area shape="rect" id="node1" title="Get the current charge of the battery." alt="" coords="212,5,357,47"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html#a5c7d6aa9eb003992d1bb8abc11e6f71d" title="Get the battery level of the robot." alt="" coords="5,5,164,47"/>
+</map>

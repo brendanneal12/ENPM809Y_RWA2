@@ -1,0 +1,5 @@
+<map id="RWA2::AquaticRobot" name="RWA2::AquaticRobot">
+<area shape="rect" id="node1" title="Class for aquatic robots." alt="" coords="5,171,161,197"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html" title="Abstract class for mobile robots." alt="" coords="8,95,159,121"/>
+<area shape="rect" id="node3" href="$class_r_w_a2_1_1_battery.html" title="Class for the battery." alt="" coords="25,5,142,32"/>
+</map>

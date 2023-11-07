@@ -1,0 +1,5 @@
+<map id="RWA2::AquaticRobot::move" name="RWA2::AquaticRobot::move">
+<area shape="rect" id="node1" title="Move the aquatic robot (override method)" alt="" coords="5,39,161,80"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html#aa52ecf04e381e7737eb54bd2b11319d0" title="Initiate Sensor Read." alt="" coords="209,5,368,47"/>
+<area shape="rect" id="node3" href="$class_r_w_a2_1_1_aquatic_robot.html#a3d5b7fbcb1867ee3d5925ad673efffd3" title="Print position, orientation, speed, current battery charge, fin info, depth, and dive status (overrid..." alt="" coords="211,71,367,112"/>
+</map>

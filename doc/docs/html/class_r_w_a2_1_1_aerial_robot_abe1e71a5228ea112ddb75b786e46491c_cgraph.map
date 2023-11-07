@@ -1,0 +1,5 @@
+<map id="RWA2::AerialRobot::move" name="RWA2::AerialRobot::move">
+<area shape="rect" id="node1" title="Move the aerial robot (override method)" alt="" coords="5,46,196,73"/>
+<area shape="rect" id="node2" href="$class_r_w_a2_1_1_mobile_robot.html#aa52ecf04e381e7737eb54bd2b11319d0" title="Initiate Sensor Read." alt="" coords="244,5,403,47"/>
+<area shape="rect" id="node3" href="$class_r_w_a2_1_1_aerial_robot.html#ae738b1a11c43e8d19f4b447e38e26e22" title="Print position, orientation, speed, current battery charge, wing info, altitude, and flight status of..." alt="" coords="247,71,400,112"/>
+</map>
