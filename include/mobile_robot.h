@@ -7,6 +7,10 @@
 
 namespace RWA2
 {
+  /**
+   * @brief Abstract class for mobile robots
+   *
+   */
   class MobileRobot
   {
   protected:

@@ -4,6 +4,10 @@
 
 namespace RWA2
 {
+    /**
+     * @brief Class for aerial robots
+     *
+     */
     class AerialRobot final : public MobileRobot
     {
 

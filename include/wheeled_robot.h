@@ -4,6 +4,10 @@
 
 namespace RWA2
 {
+    /**
+     * @brief Class for wheeled robots
+     *
+     */
     class WheeledRobot final : public MobileRobot
     {
 

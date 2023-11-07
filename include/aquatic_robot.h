@@ -4,6 +4,10 @@
 
 namespace RWA2
 {
+    /**
+     * @brief Class for aquatic robots
+     *
+     */
     class AquaticRobot final : public MobileRobot
     {
 

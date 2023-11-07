@@ -4,6 +4,10 @@
 
 namespace RWA2
 {
+    /**
+     * @brief Class for legged robots
+     *
+     */
     class LeggedRobot final : public MobileRobot
     {
 
