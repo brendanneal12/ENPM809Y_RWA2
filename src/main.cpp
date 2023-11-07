@@ -46,12 +46,12 @@ int main()
     wheeled_ptr1->add_sensor(std::make_unique<RWA2::Sensor>("OSDome"));
 
     std::unique_ptr<RWA2::MobileRobot> aquatic_ptr2 =
-        std::make_unique<RWA2::AquaticRobot>(10.5, 6.9, 0.0, "SoFi", "Li-ion", 5, false, true);
+        std::make_unique<RWA2::AquaticRobot>(10.5, 6.9, 0.0, "SoFi", "Li-ion", 64, false, true);
 
     aquatic_ptr2->add_sensor(std::make_unique<RWA2::Sensor>("LD-MRS"));
 
     std::unique_ptr<RWA2::MobileRobot> aerial_ptr2 =
-        std::make_unique<RWA2::AerialRobot>(9.5, 10.5, 55.0, "Crazyflie", "LiFePO4", 5, false, false);
+        std::make_unique<RWA2::AerialRobot>(9.5, 10.5, 55.0, "Crazyflie", "LiFePO4", 15, false, false);
 
     aerial_ptr2->add_sensor(std::make_unique<RWA2::Sensor>("OS1"));
 
@@ -61,7 +61,7 @@ int main()
     legged_ptr2->add_sensor(std::make_unique<RWA2::Sensor>("OS0"));
 
     std::unique_ptr<RWA2::MobileRobot> wheeled_ptr2 =
-        std::make_unique<RWA2::WheeledRobot>(21.5, 9.5, 0.0, "TurtleBot", "LiFePO4", 100, false, 2, 0.66, 4);
+        std::make_unique<RWA2::WheeledRobot>(21.5, 9.5, 0.0, "TurtleBot", "LiFePO4", 7, false, 2, 0.66, 4);
 
     wheeled_ptr2->add_sensor(std::make_unique<RWA2::Sensor>("OSDome"));
 
