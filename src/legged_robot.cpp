@@ -1,6 +1,7 @@
 #include "legged_robot.h"
 #include <chrono>
 #include <thread>
+#include <math.h>
 
 void RWA2::LeggedRobot::kick()
 {
@@ -64,6 +65,9 @@ void RWA2::LeggedRobot::move(double distance, double angle)
     LeggedRobot::rotate(angle);
     // Jump given distance
     LeggedRobot::jump(distance);
+    //Update new position
+    position_.first += distance*cos(orientation_*3.14/180);
+    position_.second += distance*sin(orientation_*3.14/180);
     // Discharge battery by proper amount
     battery_.discharge(100 * height_);
     // Kick once
