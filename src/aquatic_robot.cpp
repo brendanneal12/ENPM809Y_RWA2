@@ -92,14 +92,14 @@ void RWA2::AquaticRobot::print_status()
 
 void RWA2::AquaticRobot::move(double distance, double angle)
 {
-    // Check if distance is greater than the max dive and surface range. Max range is 100m total.
-    if (distance < 100)
+    // Check if distance is greater than the max dive AND surface range. Max range is 100m TOTAL.
+    if (distance <= 50)
     {
 
         // each meter consumes 1% of the battery
-        // check if the battery has enough charge to move the robot forward by the
+        // check if the battery has enough charge to move the robot by the
         // given distance (dive and surface)
-        if (battery_.get_current_charge() < distance)
+        if (battery_.get_current_charge() < 2 * distance)
         {
             std::cout << "Battery level is too low to dive and surface " << distance << " m\n";
             // Charge the battery
@@ -115,13 +115,13 @@ void RWA2::AquaticRobot::move(double distance, double angle)
         // Surface
         AquaticRobot::surface();
         // Discharge battery proper amount
-        battery_.discharge(distance);
+        battery_.discharge(2 * distance);
         std::cout << model_ << " reached a depth of " << distance << " meters and then surfaced\n";
         // Print aquatic robot status
         AquaticRobot::print_status();
     }
     else
     {
-        std::cout << "Aquatic robot unable to move more than 100 m" << '\n';
+        std::cout << "Aquatic robot unable to dive and surface more than 100 m total." << '\n';
     }
 }

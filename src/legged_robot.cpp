@@ -39,7 +39,7 @@ void RWA2::LeggedRobot::print_status()
 void RWA2::LeggedRobot::move(double distance, double angle)
 {
     // Check if robot is moving less than max distance
-    if (distance < 10)
+    if (distance <= 10)
     {
 
         // Check if able to complete one jump

@@ -62,7 +62,7 @@ void RWA2::WheeledRobot::print_status()
 void RWA2::WheeledRobot::move(double distance, double angle)
 {
     // Check if move command is not greater than maximum distance (100m)
-    if (distance < 100)
+    if (distance <= 100)
     {
 
         // each meter consumes 1% of the battery
