@@ -103,7 +103,7 @@ void RWA2::AerialRobot::move(double distance, double angle)
 
     else
     {
-        std::cout << "Aerial robot unable to fly AND land more than 50 m total" << '\n';
+        std::cout << "Aerial robot unable to take off and land more than 25 m." << '\n';
     }
 }
 
@@ -117,7 +117,7 @@ void RWA2::AerialRobot::rotate(double angle)
 void RWA2::AerialRobot::print_status()
 {
     std::cout << "================\n";
-    std::cout << "AerialRobot:: " << model_ << "\n";
+    std::cout << "AerialRobot::" << model_ << "\n";
     std::cout
         << "Position: (" << position_.first << ", "
         << position_.second << "), Orientation: " << orientation_

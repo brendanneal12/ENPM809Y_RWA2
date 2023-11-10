@@ -122,6 +122,6 @@ void RWA2::AquaticRobot::move(double distance, double angle)
     }
     else
     {
-        std::cout << "Aquatic robot unable to dive and surface more than 100 m total." << '\n';
+        std::cout << "Aquatic robot unable to dive and surface more than 50 m." << '\n';
     }
 }
