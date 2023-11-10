@@ -19,7 +19,7 @@ void RWA2::LeggedRobot::jump(double amount)
 void RWA2::LeggedRobot::rotate(double angle)
 {
     // Rotate robot by given angle
-    orientation_ += angle;
+    RWA2::MobileRobot::rotate(angle);
     std::cout << "LeggedRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
@@ -27,11 +27,8 @@ void RWA2::LeggedRobot::print_status()
 {
     std::cout << "================\n";
     std::cout << "LeggedRobot::" << model_ << "\n";
-    std::cout
-        << "Position: (" << position_.first << ", "
-        << position_.second << "), Orientation: " << orientation_
-        << ", Speed: " << speed_ << "\n"
-        << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
+    RWA2::MobileRobot::print_status();
+    std::cout << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
     std::cout << "Height: " << height_ << ", Leg Strength: " << leg_strength_ << ", Number of Legs: " << number_of_legs_ << '\n';
     std::cout << "================\n";
 }

@@ -73,7 +73,7 @@ void RWA2::AquaticRobot::surface()
 void RWA2::AquaticRobot::rotate(double angle)
 {
     // Rotate the aquatic robot by desired amount
-    orientation_ += angle;
+    RWA2::MobileRobot::rotate(angle);
     std::cout << "AquaticRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
@@ -81,25 +81,22 @@ void RWA2::AquaticRobot::print_status()
 {
     std::cout << "================\n";
     std::cout << "AquaticRobot::" << model_ << "\n";
-    std::cout
-        << "Position: (" << position_.first << ", "
-        << position_.second << "), Orientation: " << orientation_
-        << ", Speed: " << speed_ << "\n"
-        << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
+    RWA2::MobileRobot::print_status();
+    std::cout << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
     std::cout << "Has Fins: " << std::boolalpha << has_fins_ << ", Depth: " << depth_ << "m, Is Diving: " << std::boolalpha << is_diving_ << '\n';
     std::cout << "================\n";
 }
 
 void RWA2::AquaticRobot::move(double distance, double angle)
 {
-    // Check if distance is greater than the max dive AND surface range. Max range is 100m TOTAL.
-    if (distance <= 50)
+    // Check if distance is greater than the max dive AND surface range. Max range is 100m.
+    if (distance <= 100)
     {
 
         // each meter consumes 1% of the battery
         // check if the battery has enough charge to move the robot by the
         // given distance (dive and surface)
-        if (battery_.get_current_charge() < 2 * distance)
+        if (battery_.get_current_charge() < distance)
         {
             std::cout << "Battery level is too low to dive and surface " << distance << " m\n";
             // Charge the battery
@@ -111,12 +108,12 @@ void RWA2::AquaticRobot::move(double distance, double angle)
         // Rotate by given amount
         AquaticRobot::rotate(angle);
         // Dive
-        AquaticRobot::dive(distance);
+        AquaticRobot::dive(distance / 2);
         // Surface
         AquaticRobot::surface();
         // Discharge battery proper amount
-        battery_.discharge(2 * distance);
-        std::cout << model_ << " reached a depth of " << distance << " meters and then surfaced\n";
+        battery_.discharge(distance);
+        std::cout << model_ << " reached a depth of " << distance / 2 << " meters and then surfaced\n";
         // Print aquatic robot status
         AquaticRobot::print_status();
     }

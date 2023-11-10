@@ -42,7 +42,7 @@ void RWA2::WheeledRobot::brake()
 void RWA2::WheeledRobot::rotate(double angle)
 {
     // Rotate robot by desired angle
-    orientation_ += angle;
+    RWA2::MobileRobot::rotate(angle);
     std::cout << "WheeledRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
@@ -50,11 +50,8 @@ void RWA2::WheeledRobot::print_status()
 {
     std::cout << "================\n";
     std::cout << "WheeledRobot::" << model_ << "\n";
-    std::cout
-        << "Position: (" << position_.first << ", "
-        << position_.second << "), Orientation: " << orientation_
-        << ", Speed: " << speed_ << "\n"
-        << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
+    RWA2::MobileRobot::print_status();
+    std::cout << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
     std::cout << "Number of Wheels: " << number_of_wheels_ << ", Wheel Diameter: " << wheel_diameter_ << "m , Desired Speed: " << desired_speed_ << "m/s \n";
     std::cout << "================\n";
 }

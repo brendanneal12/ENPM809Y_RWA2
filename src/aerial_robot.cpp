@@ -72,14 +72,14 @@ void RWA2::AerialRobot::land()
 
 void RWA2::AerialRobot::move(double distance, double angle)
 {
-    // Check if distance is greater than the max fly AND land range. Max range is 50m TOTAL.
-    if (distance <= 25)
+    // Check if distance is greater than the max fly AND land range. Max range is 50m.
+    if (distance <= 50)
     {
 
         // each meter consumes 2% of the battery
         // check if the battery has enough charge to take off AND land by the
         // given distance
-        if (battery_.get_current_charge() < 2 * 2 * distance)
+        if (battery_.get_current_charge() < 2 * distance)
         {
             std::cout << "Battery level is too low to take off and land by " << distance << " m\n";
             // Charge Battery
@@ -89,28 +89,28 @@ void RWA2::AerialRobot::move(double distance, double angle)
         // Read Sensor Data for 5 seconds
         AerialRobot::get_sensor_reading(5);
         // Take Off
-        AerialRobot::takeoff(distance);
+        AerialRobot::takeoff(distance / 2);
         // Rotate by desired angle
         AerialRobot::rotate(angle);
         // Land
         AerialRobot::land();
         // Discharge battery by proper amount
-        battery_.discharge(2 * 2 * distance);
-        std::cout << model_ << " reached an altitude of " << distance << " meters and then landed\n";
+        battery_.discharge(2 * distance);
+        std::cout << model_ << " reached an altitude of " << distance / 2 << " meters and then landed\n";
         // Print the new status of AerialRobot
         AerialRobot::print_status();
     }
 
     else
     {
-        std::cout << "Aerial robot unable to take off and land more than 25 m." << '\n';
+        std::cout << "Aerial robot unable to take off and land more than 50 m." << '\n';
     }
 }
 
 void RWA2::AerialRobot::rotate(double angle)
 {
     // Rotate the aerial robot by desired amount
-    orientation_ += angle;
+    RWA2::MobileRobot::rotate(angle);
     std::cout << "AerialRobot::" << model_ << " rotated " << angle << " degrees \n";
 }
 
@@ -118,11 +118,8 @@ void RWA2::AerialRobot::print_status()
 {
     std::cout << "================\n";
     std::cout << "AerialRobot::" << model_ << "\n";
-    std::cout
-        << "Position: (" << position_.first << ", "
-        << position_.second << "), Orientation: " << orientation_
-        << ", Speed: " << speed_ << "\n"
-        << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
+    RWA2::MobileRobot::print_status();
+    std::cout << "Current Battery Charge: " << battery_.get_current_charge() << "\n";
     std::cout << "Has Wings:" << std::boolalpha << has_wings_ << ", Altitude: " << altitude_ << "m, Is Flying:" << std::boolalpha << is_flying_ << '\n';
     std::cout << "================\n";
 }
