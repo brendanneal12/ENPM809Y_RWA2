@@ -93,32 +93,35 @@ void RWA2::AquaticRobot::print_status()
 void RWA2::AquaticRobot::move(double distance, double angle)
 {
     // Check if distance is greater than the max dive and surface range. Max range is 100m total.
-    if (distance > 50)
+    if (distance < 100)
+    {
+
+        // each meter consumes 1% of the battery
+        // check if the battery has enough charge to move the robot forward by the
+        // given distance (dive and surface)
+        if (battery_.get_current_charge() < distance)
+        {
+            std::cout << "Battery level is too low to dive and surface " << distance << " m\n";
+            // Charge the battery
+            battery_.start_charging();
+        }
+
+        // Read sensor data
+        AquaticRobot::get_sensor_reading(5);
+        // Rotate by given amount
+        AquaticRobot::rotate(angle);
+        // Dive
+        AquaticRobot::dive(distance);
+        // Surface
+        AquaticRobot::surface();
+        // Discharge battery proper amount
+        battery_.discharge(distance);
+        std::cout << model_ << " reached a depth of " << distance << " meters and then surfaced\n";
+        // Print aquatic robot status
+        AquaticRobot::print_status();
+    }
+    else
     {
         std::cout << "Aquatic robot unable to move more than 100 m" << '\n';
     }
-
-    // each meter consumes 1% of the battery
-    // check if the battery has enough charge to move the robot forward by the
-    // given distance (dive and surface)
-    if (battery_.get_current_charge() < 2 * distance)
-    {
-        std::cout << "Battery level is too low to dive and surface " << distance << " m\n";
-        // Charge the battery
-        battery_.start_charging();
-    }
-
-    // Read sensor data
-    AquaticRobot::get_sensor_reading(5);
-    // Rotate by given amount
-    AquaticRobot::rotate(angle);
-    // Dive
-    AquaticRobot::dive(distance);
-    // Surface
-    AquaticRobot::surface();
-    // Discharge battery proper amount
-    battery_.discharge(2 * distance);
-    std::cout << model_ << " reached a depth of " << distance << " meters and then surfaced\n";
-    // Print aquatic robot status
-    AquaticRobot::print_status();
 }

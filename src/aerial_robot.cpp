@@ -73,34 +73,38 @@ void RWA2::AerialRobot::land()
 void RWA2::AerialRobot::move(double distance, double angle)
 {
     // Check if distance is greater than the max fly and land range. Max range is 50m total.
-    if (distance > 25)
+    if (distance < 50)
     {
-        std::cout << "Aerial robot unable to fly and land more than 50 m" << '\n';
+
+        // each meter consumes 2% of the battery
+        // check if the battery has enough charge to move the robot take off AND land by the
+        // given distance
+        if (battery_.get_current_charge() < 2 * distance)
+        {
+            std::cout << "Battery level is too low to take off and land by " << distance << " m\n";
+            // Charge Battery
+            battery_.start_charging();
+        }
+
+        // Read Sensor Data for 5 seconds
+        AerialRobot::get_sensor_reading(5);
+        // Take Off
+        AerialRobot::takeoff(distance);
+        // Rotate by desired angle
+        AerialRobot::rotate(angle);
+        // Land
+        AerialRobot::land();
+        // Discharge battery by proper amount
+        battery_.discharge(2 * distance);
+        std::cout << model_ << " reached an altitude of " << distance << " meters and then landed\n";
+        // Print the new status of AerialRobot
+        AerialRobot::print_status();
     }
 
-    // each meter consumes 2% of the battery
-    // check if the battery has enough charge to move the robot take off AND land by the
-    // given distance
-    if (battery_.get_current_charge() < 2 * 2 * distance)
+    else
     {
-        std::cout << "Battery level is too low to take off and land by " << distance << " m\n";
-        // Charge Battery
-        battery_.start_charging();
+        std::cout << "Aerial robot unable to move more than 50 m" << '\n';
     }
-
-    // Read Sensor Data for 5 seconds
-    AerialRobot::get_sensor_reading(5);
-    // Take Off
-    AerialRobot::takeoff(distance);
-    // Rotate by desired angle
-    AerialRobot::rotate(angle);
-    // Land
-    AerialRobot::land();
-    // Discharge battery by proper amount
-    battery_.discharge(2 * 2 * distance);
-    std::cout << model_ << " reached an altitude of " << distance << " meters and then landed\n";
-    // Print the new status of AerialRobot
-    AerialRobot::print_status();
 }
 
 void RWA2::AerialRobot::rotate(double angle)

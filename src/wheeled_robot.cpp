@@ -62,40 +62,43 @@ void RWA2::WheeledRobot::print_status()
 void RWA2::WheeledRobot::move(double distance, double angle)
 {
     // Check if move command is not greater than maximum distance (100m)
-    if (distance > 100)
+    if (distance < 100)
+    {
+
+        // each meter consumes 1% of the battery
+        // check if the battery has enough charge to move the robot forward by the
+        // given distance
+        if (battery_.get_current_charge() < distance)
+        {
+            std::cout << "Battery level is too low to move " << distance << " m\n";
+            battery_.start_charging();
+        }
+
+        // Read sensor data
+        WheeledRobot::get_sensor_reading(5);
+        // Rotate wheeled robot by angle
+        WheeledRobot::rotate(angle);
+        // Accelerate to desired speed
+        WheeledRobot::accelerate(2);
+        // Sleep thread for distance-2 seconds
+        int wait_time_milli = static_cast<int>(distance * 1000 - 2000);
+        std::chrono::milliseconds duration(wait_time_milli);
+        std::this_thread::sleep_for(duration);
+        // Decelerate to zero
+        WheeledRobot::deceletate(2);
+        // Brake
+        WheeledRobot::brake();
+        // Update new position
+        position_.first += distance * cos(orientation_ * 3.14 / 180);
+        position_.second += distance * sin(orientation_ * 3.14 / 180);
+        // Discharge battery by proper amount
+        battery_.discharge(distance);
+        std::cout << model_ << " drove " << distance << " m\n";
+        // Print status of wheeled robot.
+        WheeledRobot::print_status();
+    }
+    else
     {
         std::cout << "Wheeled Robot unable to move more than 100 m." << '\n';
     }
-
-    // each meter consumes 1% of the battery
-    // check if the battery has enough charge to move the robot forward by the
-    // given distance
-    if (battery_.get_current_charge() < distance)
-    {
-        std::cout << "Battery level is too low to move " << distance << " m\n";
-        battery_.start_charging();
-    }
-
-    // Read sensor data
-    WheeledRobot::get_sensor_reading(5);
-    // Rotate wheeled robot by angle
-    WheeledRobot::rotate(angle);
-    // Accelerate to desired speed
-    WheeledRobot::accelerate(2);
-    // Sleep thread for distance-2 seconds
-    int wait_time_milli = static_cast<int>(distance * 1000 - 2000);
-    std::chrono::milliseconds duration(wait_time_milli);
-    std::this_thread::sleep_for(duration);
-    // Decelerate to zero
-    WheeledRobot::deceletate(2);
-    // Brake
-    WheeledRobot::brake();
-    // Update new position
-    position_.first += distance * cos(orientation_ * 3.14 / 180);
-    position_.second += distance * sin(orientation_ * 3.14 / 180);
-    // Discharge battery by proper amount
-    battery_.discharge(distance);
-    std::cout << model_ << " drove " << distance << " m\n";
-    // Print status of wheeled robot.
-    WheeledRobot::print_status();
 }
