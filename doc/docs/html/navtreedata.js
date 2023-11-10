@@ -23,9 +23,9 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "RWA2", "index.html", [
-    [ "ENPM809Y_RWA2", "md__r_e_a_d_m_e.html", [
-      [ "Student Information", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Project Information", "md__r_e_a_d_m_e.html#autotoc_md2", null ]
+    [ "ENPM809Y_RWA2", "md__home_brendanneal12__documents__git_hub__e_n_p_m809_y__r_w_a2__r_e_a_d_m_e.html", [
+      [ "Student Information", "md__home_brendanneal12__documents__git_hub__e_n_p_m809_y__r_w_a2__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Project Information", "md__home_brendanneal12__documents__git_hub__e_n_p_m809_y__r_w_a2__r_e_a_d_m_e.html#autotoc_md2", null ]
     ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
